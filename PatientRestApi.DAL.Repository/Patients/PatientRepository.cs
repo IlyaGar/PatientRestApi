@@ -106,11 +106,6 @@ namespace PatientRestApi.DAL.Repository.Patients
 
         public async Task<Patient> UpdatePatient(Guid id, Patient patient)
         {
-            if (id != patient.Name.Id)
-            {
-                throw new ArgumentException("Идентификаторы не совпадают");
-            }
-
             var existingPatient = await _context.Patients
                 .Include(x => x.Name)
                     .ThenInclude(n => n.Given)
