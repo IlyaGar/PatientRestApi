@@ -4,7 +4,7 @@
     {
         public DateFilterType StartDateFilterType { get; set; }
         public DateFilterType EndDateFilterType { get; set; }
-        public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
+        public DateTime? StartDate { get; set; }
+        public DateTime? EndDate { get; set; }
     }
 }

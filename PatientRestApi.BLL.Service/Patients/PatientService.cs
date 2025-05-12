@@ -121,7 +121,7 @@ namespace PatientRestApi.BLL.Service.Patients
 
                 DateTime date = DateTime.Parse(dateStr);
 
-                if (string.IsNullOrEmpty(dateFilter.StartDateFilterType.ToString()))
+                if (dateFilter.StartDate is null)
                 {
                     dateFilter.StartDate = date;
                     dateFilter.StartDateFilterType = GetDateFilterType(filterType);

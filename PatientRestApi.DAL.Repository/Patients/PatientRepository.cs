@@ -78,8 +78,8 @@ namespace PatientRestApi.DAL.Repository.Patients
                     DateFilterType.StartsAfter => query.Where(p => p.BirthDate > dateFilter.StartDate),
                     DateFilterType.EndsBefore => query.Where(p => p.BirthDate < dateFilter.StartDate),
                     DateFilterType.Approximate => query.Where(p =>
-                        p.BirthDate >= dateFilter.StartDate.AddDays(-1) &&
-                        p.BirthDate <= dateFilter.StartDate.AddDays(1)),
+                        p.BirthDate >= dateFilter.StartDate.GetValueOrDefault().AddDays(-1) &&
+                        p.BirthDate <= dateFilter.StartDate.GetValueOrDefault().AddDays(1)),
                     _ => query
                 };
             }
@@ -95,8 +95,8 @@ namespace PatientRestApi.DAL.Repository.Patients
                     DateFilterType.StartsAfter => query.Where(p => p.BirthDate > dateFilter.EndDate),
                     DateFilterType.EndsBefore => query.Where(p => p.BirthDate < dateFilter.EndDate),
                     DateFilterType.Approximate => query.Where(p =>
-                        p.BirthDate >= dateFilter.EndDate.AddDays(-1) &&
-                        p.BirthDate <= dateFilter.EndDate.AddDays(1)),
+                        p.BirthDate >= dateFilter.EndDate.GetValueOrDefault().AddDays(-1) &&
+                        p.BirthDate <= dateFilter.EndDate.GetValueOrDefault().AddDays(1)),
                     _ => query
                 };
             }
